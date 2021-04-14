@@ -199,6 +199,7 @@ const heads = [
          eyesType: 'one',
          type: 'head'
      },*/
+
     squareHeadNoStick = function (body) {
         return {
             drawMe: (x) => {
