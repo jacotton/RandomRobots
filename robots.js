@@ -148,7 +148,38 @@ const hands = [
             c4.addClass("botSVGinverseNoOutline");
         },
         type: 'hands'
+    },
+    squareClawHand = {
+        drawMe: function (x, arms) {
+            let dia = Math.min(arms.handX, 10);
+            let widthOfClaw = dia / 3;
+            let leftClaw = x.polygon(`${arms.handX - dia / 2},${arms.handY} 
+            ${arms.handX + dia / 2},${arms.handY}  
+            ${arms.handX + dia / 2},${arms.handY + dia}  
+            ${arms.handX + dia / 2 - widthOfClaw},${arms.handY + dia}  
+            ${arms.handX + dia / 2 - widthOfClaw},${arms.handY + widthOfClaw} 
+            ${arms.handX + dia / 2 - 2 * widthOfClaw},${arms.handY + widthOfClaw}
+            ${arms.handX + dia / 2 - 2 * widthOfClaw},${arms.handY + dia}
+            ${arms.handX + dia / 2 - 3 * widthOfClaw},${arms.handY + dia}
+            ${arms.handX + dia / 2 - 3 * widthOfClaw},${arms.handY}            
+            `);
+            leftClaw.addClass("botSVGprimaryNoOutline");
+            rightClawX = 100 - arms.handX;
+            let rightClaw = x.polygon(`${rightClawX - dia / 2},${arms.handY} 
+            ${rightClawX + dia / 2},${arms.handY}  
+            ${rightClawX + dia / 2},${arms.handY + dia}  
+            ${rightClawX + dia / 2 - widthOfClaw},${arms.handY + dia}  
+            ${rightClawX + dia / 2 - widthOfClaw},${arms.handY + widthOfClaw} 
+            ${rightClawX + dia / 2 - 2 * widthOfClaw},${arms.handY + widthOfClaw}
+            ${rightClawX + dia / 2 - 2 * widthOfClaw},${arms.handY + dia}
+            ${rightClawX + dia / 2 - 3 * widthOfClaw},${arms.handY + dia}
+            ${rightClawX + dia / 2 - 3 * widthOfClaw},${arms.handY}            
+            `);
+            rightClaw.addClass("botSVGprimaryNoOutline");
+        },
+        type: 'hands'
     }
+
 ];
 
 //This array returns some object factories.
@@ -675,5 +706,5 @@ document.querySelector("#newCols").addEventListener('click', event => { newCols(
 document.querySelector(".modal-close").addEventListener('click', event => { closeModal(); })
 
 let countNode = document.querySelector("#robotCount");
-let total_robot_types = bodies.length * feet.length * legs.length * heads.length * (eyes.length + twoEyes.length) * panels.length;
+let total_robot_types = bodies.length * feet.length * legs.length * heads.length * (eyes.length + twoEyes.length) * panels.length * arms.length * hands.length;
 countNode.innerText = total_robot_types;
