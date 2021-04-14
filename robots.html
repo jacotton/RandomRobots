@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="robots.css">
+</head>
+
+<body class="has-text-primary">
+    <div class="container">
+        <div class="container has-background-primary p-2 m-2">
+            <h1 class="title is-2 has-text-white">Robots!</h1>
+            <h2 class="subtitle is-4 has-text-white">welcome our new mechanical overlords</h2>
+        </div>
+        <div class="block">
+            <p>Welcome to James's wonderful random robot generator. Click the buttons to get a lovely SVG robot drawing
+                you can use as you want! I currently make around <span id="robotCount">72</span> main types of Robot,
+                and some subtle varieties too. I hope
+                you find one to love: you can take one home if you'd like.
+            </p>
+        </div>
+        <div class="block">
+            <div class="columns">
+                <div class="column is-one-fifth is-vcentered ">
+                    <div class="box has-background-primary-light">
+                        <div class="buttons ">
+
+                            <!--    <h2 class="subtitle is-4 has-text-primary"> Generators</h2>-->
+                            <button class="button is-primary" id="bot9">new robots</button>
+                            <button class="button is-primary" id="newCols">new colors</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column p-2">
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-2 botBox" id="bot1.1"></div>
+                        <div class="tile is-child is-2 botBox" id="bot1.2"></div>
+                        <div class="tile is-child is-2 botBox" id="bot1.3"></div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-2 botBox" id="bot2.1"></div>
+                        <div class="tile is-child is-2 botBox" id="bot2.2"></div>
+                        <div class="tile is-child is-2 botBox" id="bot2.3"></div>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child is-2 botBox" id="bot3.1"></div>
+                        <div class="tile is-child is-2 botBox" id="bot3.2"></div>
+                        <div class="tile is-child is-2 botBox" id="bot3.3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="SVGcodepop">
+            <div class="modal-background"></div>
+            <div class="modal-content" id="SVGcodeContent">
+                <!-- Any other Bulma elements you want -->
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+    <script src="name_generator.js"></script>
+    <script src="robots.js"></script>
+    <script src="droid_names.js"></script>
+</body>
+
+</html>

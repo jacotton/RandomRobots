@@ -1,0 +1,23 @@
+.botSVGprimaryOutline {
+    stroke: hsl(348, 100%, 61%);
+    fill: hsl(171, 100%, 41%);
+    stroke-width: 1;
+}
+
+.botSVGinverseOutline {
+    stroke: hsl(171, 100%, 41%);
+    fill: hsl(348, 100%, 61%);
+    stroke-width: 1;
+}
+.botSVGprimaryNoOutline {
+    stroke:none;
+    fill: hsl(171, 100%, 41%);
+    stroke-width: 0;
+}
+
+.botSVGinverseNoOutline {
+    stroke:none;
+    fill: hsl(348, 100%, 61%);
+    stroke-width: 0;
+}
+
