@@ -120,28 +120,8 @@ const arms = [
                 ${(100 - body.armX) + armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
                 ${(100 - body.armX) + armWidth},${body.armY + (armWidth / 2)} 
                 `);
-
                 rightArm.addClass("botSVGprimaryNoOutline");
-                /*                
 
-                let leftArm = x.polygon(`
-            ${body.armX},${body.armY - (armWidth / 2)} 
-            ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2)} 
-            ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
-            ${body.armX - armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
-            ${body.armX - armWidth},${body.armY + (armWidth / 2)} 
-            ${body.armX},${body.armY + (armWidth / 2)} 
-            `);
-                leftArm.addClass("botSVGprimaryNoOutline");
-
-                let rightArm = x.polygon(`
-                ${100 - body.armX},${body.armY - (armWidth / 2)} 
-                ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2)} 
-                ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
-                ${(100 - body.armX) + armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
-                ${(100 - body.armX) + armWidth},${body.armY + (armWidth / 2)} 
-                ${100 - body.armX},${body.armY + (armWidth / 2)} 
-                `);*/
             },
             type: 'arms',
             handX: body.armX - 1.5 * (Math.min(6.0, body.armX / 3.0)),
@@ -390,20 +370,20 @@ const panels = [
             let hinge1a = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) - 1, body.panelY - 4);
             let hinge1b = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) + 0.5, body.panelY - 4);
 
-            hinge1a.addClass("botSVGprimaryOutline ");
-            hinge1b.addClass("botSVGprimaryOutline ");
+            hinge1a.addClass("botSVGprimaryOutline");
+            hinge1b.addClass("botSVGprimaryOutline");
 
             let hinge2a = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) - 1, body.panelY + 2);
             let hinge2b = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) + 0.5, body.panelY + 2);
 
-            hinge2a.addClass("botSVGprimaryOutline ")
-            hinge2b.addClass("botSVGprimaryOutline ")
+            hinge2a.addClass("botSVGprimaryOutline")
+            hinge2b.addClass("botSVGprimaryOutline")
 
             let handle1 = x.rect(2, 3).move(body.panelX + (body.panelMaxD * 1.0 / 3.0) - 1.5, body.panelY + - 1);
             let handle2 = x.rect(1, 2).move(body.panelX + (body.panelMaxD * 1.0 / 3.0) - 1, body.panelY - 0.5)
 
-            handle1.addClass("botSVGprimaryOutline ")
-            handle2.addClass("botSVGprimaryOutline ")
+            handle1.addClass("botSVGprimaryOutline")
+            handle2.addClass("botSVGprimaryOutline")
 
 
         },
@@ -758,8 +738,8 @@ const newCols = function () {
     const SVGElementsInverse = document.querySelectorAll(".botSVGinverseOutline");
     const SVGElementsPrimaryNoOutline = document.querySelectorAll(".botSVGprimaryNoOutline");
     const SVGElementsInverseNoOutline = document.querySelectorAll(".botSVGinverseNoOutline");
-
-
+    const SVGElementsOutlineOnly = document.querySelectorAll("botSVGOutlineOnly");
+    const SVGElementsInverseOutlineOnly = document.querySelectorAll("botSVGInverseOutlineOnly");
     let fillColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     let strokeColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     for (let i of SVGElementsPrimary) {
@@ -776,6 +756,13 @@ const newCols = function () {
     for (let i of SVGElementsInverseNoOutline) {
         i.style.fill = strokeColor;
     }
+    for (let i of SVGElementsOutlineOnly) {
+        i.style.stroke = strokeColor;
+    }
+    for (let i of SVGElementsInverseOutlineOnly) {
+        i.style.stroke = fillColor;
+    }
+
 }
 
 
