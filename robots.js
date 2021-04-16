@@ -713,6 +713,8 @@ const drawBot = function (parentNode) {
 
     //listener to click 'SVG' button panel
     botContainerFooterSVG.addEventListener('click', event => { returnSVG(draw); });
+
+
     parentNode.appendChild(botContainer);
 
 }
