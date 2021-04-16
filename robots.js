@@ -99,6 +99,56 @@ const feet = [
 
 //these are object factories, so hand position can depend on body.
 const arms = [
+    blobShoulderArm = function (body) {
+        return {
+            drawMe: function (x) {
+                let armWidth = Math.min(6.0, body.armX / 3.0);
+                let leftShoulder = x.circle(3 * armWidth + 2).move(body.armX - 2 * armWidth - 2, body.armY - 2 * armWidth);
+                leftShoulder.addClass("botSVGprimaryNoOutline")
+                let leftArm = x.polygon(`
+                ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2)} 
+            ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+            ${body.armX - armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+            ${body.armX - armWidth},${body.armY + (armWidth / 2)} 
+                `);
+                leftArm.addClass("botSVGprimaryNoOutline");
+                let rightShoulder = x.circle(3 * armWidth + 2).move((100 - body.armX) - armWidth, body.armY - 2 * armWidth);
+                rightShoulder.addClass("botSVGprimaryNoOutline");
+                let rightArm = x.polygon(`
+                 ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2)} 
+                ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+                ${(100 - body.armX) + armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+                ${(100 - body.armX) + armWidth},${body.armY + (armWidth / 2)} 
+                `);
+
+                rightArm.addClass("botSVGprimaryNoOutline");
+                /*                
+
+                let leftArm = x.polygon(`
+            ${body.armX},${body.armY - (armWidth / 2)} 
+            ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2)} 
+            ${body.armX - 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+            ${body.armX - armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+            ${body.armX - armWidth},${body.armY + (armWidth / 2)} 
+            ${body.armX},${body.armY + (armWidth / 2)} 
+            `);
+                leftArm.addClass("botSVGprimaryNoOutline");
+
+                let rightArm = x.polygon(`
+                ${100 - body.armX},${body.armY - (armWidth / 2)} 
+                ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2)} 
+                ${(100 - body.armX) + 2 * armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+                ${(100 - body.armX) + armWidth},${body.armY - (armWidth / 2) + ((100 - body.armY) * 0.5)} 
+                ${(100 - body.armX) + armWidth},${body.armY + (armWidth / 2)} 
+                ${100 - body.armX},${body.armY + (armWidth / 2)} 
+                `);*/
+            },
+            type: 'arms',
+            handX: body.armX - 1.5 * (Math.min(6.0, body.armX / 3.0)),
+            handY: body.armY - ((Math.min(6.0, body.armX / 3.0)) / 2) + ((100 - body.armY) * 0.5),
+            hasHands: true
+        }
+    },
     rightAngleArm = function (body) {
         return {
             drawMe: function (x) {
@@ -369,6 +419,15 @@ const panels = [
             myD = body.panelMaxD * 1 / 2;
             let r3 = x.rect(myD, myD).move(body.panelX - (myD / 2.0), body.panelY - (myD / 2.0))
             r3.addClass("botSVGinverseNoOutline");
+            let rivet1 = x.circle(1).move(body.panelX - (myD / 2.0) + 1, body.panelY - (myD / 2.0) + 1)
+            rivet1.addClass('botSVGprimaryNoOutline');
+            let rivet2 = x.circle(1).move(body.panelX - (myD / 2.0) + 1, body.panelY + (myD / 2.0) - 2)
+            rivet2.addClass('botSVGprimaryNoOutline');
+            let rivet3 = x.circle(1).move(body.panelX + (myD / 2.0) - 2, body.panelY - (myD / 2.0) + 1)
+            rivet3.addClass('botSVGprimaryNoOutline');
+            let rivet4 = x.circle(1).move(body.panelX + (myD / 2.0) - 2, body.panelY + (myD / 2.0) - 2)
+            rivet4.addClass('botSVGprimaryNoOutline');
+
 
         },
         type: 'panel'
