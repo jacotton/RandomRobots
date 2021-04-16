@@ -738,8 +738,8 @@ const newCols = function () {
     const SVGElementsInverse = document.querySelectorAll(".botSVGinverseOutline");
     const SVGElementsPrimaryNoOutline = document.querySelectorAll(".botSVGprimaryNoOutline");
     const SVGElementsInverseNoOutline = document.querySelectorAll(".botSVGinverseNoOutline");
-    const SVGElementsOutlineOnly = document.querySelectorAll("botSVGOutlineOnly");
-    const SVGElementsInverseOutlineOnly = document.querySelectorAll("botSVGInverseOutlineOnly");
+    const SVGElementsOutlineOnly = document.querySelectorAll(".botSVGOutlineOnly");
+    const SVGElementsInverseOutlineOnly = document.querySelectorAll(".botSVGInverseOutlineOnly");
     let fillColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     let strokeColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     for (let i of SVGElementsPrimary) {
