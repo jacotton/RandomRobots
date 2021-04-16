@@ -1,13 +1,25 @@
 .botSVGprimaryOutline {
     stroke: hsl(348, 100%, 61%);
     fill: hsl(171, 100%, 41%);
-    stroke-width: 1;
+    stroke-width: 0.5;
+}
+
+.botSVGOutlineOnly {
+    stroke: hsl(348, 100%, 61%);
+    fill: none;
+    stroke-width: 0.5;
+}
+
+.botSVGInverseOutlineOnly {
+    stroke: hsl(171, 100%, 41%);
+    fill: none;
+    stroke-width: 0.5;
 }
 
 .botSVGinverseOutline {
     stroke: hsl(171, 100%, 41%);
     fill: hsl(348, 100%, 61%);
-    stroke-width: 1;
+    stroke-width: 0.5;
 }
 .botSVGprimaryNoOutline {
     stroke:none;
@@ -21,3 +33,6 @@
     stroke-width: 0;
 }
 
+.card-header-title {
+    text-align:right;
+}

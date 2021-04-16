@@ -331,6 +331,34 @@ BODY OBJECTS - include drawMe function , passed SVG element object as first para
 */
 
 const panels = [
+    roundHatch = {
+        drawMe: function (x, body) {
+            let r1 = x.circle(body.panelMaxD).move(body.panelX - body.panelMaxD / 2.0, body.panelY - body.panelMaxD / 2.0);
+            let r2 = x.circle(body.panelMaxD - 2.0).move(body.panelX - (body.panelMaxD - 2) / 2.0, body.panelY - (body.panelMaxD - 2) / 2.0);
+            r1.addClass("botSVGOutlineOnly");
+            r2.addClass("botSVGOutlineOnly");
+            let hinge1a = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) - 1, body.panelY - 4);
+            let hinge1b = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) + 0.5, body.panelY - 4);
+
+            hinge1a.addClass("botSVGprimaryOutline ");
+            hinge1b.addClass("botSVGprimaryOutline ");
+
+            let hinge2a = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) - 1, body.panelY + 2);
+            let hinge2b = x.rect(1.5, 2).move(body.panelX - (body.panelMaxD / 2.0) + 0.5, body.panelY + 2);
+
+            hinge2a.addClass("botSVGprimaryOutline ")
+            hinge2b.addClass("botSVGprimaryOutline ")
+
+            let handle1 = x.rect(2, 3).move(body.panelX + (body.panelMaxD * 1.0 / 3.0) - 1.5, body.panelY + - 1);
+            let handle2 = x.rect(1, 2).move(body.panelX + (body.panelMaxD * 1.0 / 3.0) - 1, body.panelY - 0.5)
+
+            handle1.addClass("botSVGprimaryOutline ")
+            handle2.addClass("botSVGprimaryOutline ")
+
+
+        },
+        type: 'panel'
+    },
     squarePanel = {
         drawMe: function (x, body) {
             let r1 = x.rect(body.panelMaxD, body.panelMaxD).move(body.panelX - (body.panelMaxD / 2.0), body.panelY - (body.panelMaxD / 2.0))
@@ -532,6 +560,7 @@ const drawBot = function (parentNode) {
     const botContainer = document.createElement("div");
     botContainer.classList.add("botcard");
     botContainer.classList.add("card");
+    botContainer.classList.add("has-text-centered");
 
 
 
@@ -539,7 +568,10 @@ const drawBot = function (parentNode) {
     botContainerHeader.classList.add("card-header");
 
     const botContainerHeaderTitle = document.createElement("p");
-    botContainerHeaderTitle.classList.add("card-header-title");
+    botContainerHeaderTitle.classList.add("card-header-title")
+    botContainerHeaderTitle.classList.add("has-background-primary");
+    botContainerHeaderTitle.classList.add("has-text-white");
+    botContainerHeaderTitle.classList.add("is-centered");
     let droidName = generate_name('droids');
     //remove ugly names ending in dashes
     console.log(`name was ${droidName} `);
@@ -561,15 +593,16 @@ const drawBot = function (parentNode) {
     const botContainerFooterDelete = document.createElement("a");
     botContainerFooterSVG.classList.add("card-footer-item");
     botContainerFooterSVG.innerText = "SVG";
-    botContainerFooterDelete.classList.add("card-footer-item");
-    botContainerFooterDelete.innerText = "replace";
+    // botContainerFooterDelete.classList.add("card-footer-item");
+    //botContainerFooterDelete.innerText = "replace";
     botContainerFooter.appendChild(botContainerFooterSVG);
-    botContainerFooter.appendChild(botContainerFooterDelete);
+    //botContainerFooter.appendChild(botContainerFooterDelete);
 
     botContainer.appendChild(botContainerFooter);
 
     const draw = SVG().size(100, 100).addTo(botContainerContent)
     draw.addClass("botSVGprimaryNoOutline");
+
     //const rect = draw.rect(100, 100).fill(`${ primaryColour } `).stroke({ color: `${ secondaryColour } `, width: 5 });
     // DRAW BODY
     let whichBody = Math.floor(Math.random() * bodies.length);
