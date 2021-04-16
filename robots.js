@@ -361,6 +361,12 @@ BODY OBJECTS - include drawMe function , passed SVG element object as first para
 */
 
 const panels = [
+    noPanel = {
+        drawMe: function (x, body) {
+        },
+        type: 'panel'
+
+    },
     roundHatch = {
         drawMe: function (x, body) {
             let r1 = x.circle(body.panelMaxD).move(body.panelX - body.panelMaxD / 2.0, body.panelY - body.panelMaxD / 2.0);
@@ -733,15 +739,16 @@ const clearBots = function () {
     }
 }
 
-const newCols = function () {
+let fillColor = null;
+let strokeColor = null;
+
+const updateCols = function () {
     const SVGElementsPrimary = document.querySelectorAll(".botSVGprimaryOutline");
     const SVGElementsInverse = document.querySelectorAll(".botSVGinverseOutline");
     const SVGElementsPrimaryNoOutline = document.querySelectorAll(".botSVGprimaryNoOutline");
     const SVGElementsInverseNoOutline = document.querySelectorAll(".botSVGinverseNoOutline");
     const SVGElementsOutlineOnly = document.querySelectorAll(".botSVGOutlineOnly");
     const SVGElementsInverseOutlineOnly = document.querySelectorAll(".botSVGInverseOutlineOnly");
-    let fillColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-    let strokeColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
     for (let i of SVGElementsPrimary) {
         i.style.fill = fillColor;
         i.style.stroke = strokeColor;
@@ -765,6 +772,12 @@ const newCols = function () {
 
 }
 
+const newCols = function () {
+    fillColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    strokeColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    updateCols();
+}
+
 
 const draw9Bots = function () {
     clearBots();
@@ -773,6 +786,7 @@ const draw9Bots = function () {
     for (let i of botBoxes) {
         drawBot(i);
     }
+    updateCols();
 }
 
 
